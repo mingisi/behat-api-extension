@@ -1,0 +1,23 @@
+{
+  "name": "mingisi/behat-api-extension",
+  "type": "library",
+  "description": "API extension for Behat",
+  "keywords": ["behat", "testing", "api", "REST", "http"],
+  "homepage": "https://github.com/mingisi/behat-api-extension",
+  "authors": [{
+    "name": "Salim Muthalib",
+    "homepage": "https://github.com/mingisi"
+  }],
+  "require-dev": {
+    "behat/behat":  "*",
+    "fabpot/goutte": "^3.2",
+    "beberlei/assert": "^2.1",
+    "guzzlehttp/guzzle": "^6.0",
+    "coduo/php-matcher": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mtkip\\BehatApiExtension\\": "src/"
+    }
+  }
+}
