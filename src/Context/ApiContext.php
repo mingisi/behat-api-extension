@@ -20,6 +20,8 @@ use InvalidArgumentException;
 use RuntimeException;
 use stdClass;
 
+use Coduo\PHPMatcher\Factory\SimpleFactory;
+
 /**
  * Behat feature context that can be used to simplify testing of JSON-based/XML HTTP APIs
  *
@@ -65,6 +67,11 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
 
     private $requestOptions;
 
+    public function __construct()
+    {
+        $this->factory = new SimpleFactory();
+        $this->matcher = $this->factory->createMatcher();
+    }
 
     /**
      * {@inheritdoc}
@@ -170,6 +177,7 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
     public function theResponseBodyContainsXml(PyStringNode $xmlString)
     {
         $body = (string) $this->response->getBody();
+
         $match = $this->matcher->match($body, (string) $xmlString);
 
         try {

@@ -1,7 +1,7 @@
 <?php
 namespace MtkIp\BehatApiExtension\Context\Initializer;
 
-use Mtkip\BehatApiExtension\Context\ApiClientAwareContext;
+use MtkIp\BehatApiExtension\Context\ApiClientAwareContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\Initializer\ContextInitializer;
