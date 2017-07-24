@@ -1,5 +1,5 @@
 <?php
-namespace Mtkip\BehatApiExtension\Context\Initializer;
+namespace MtkIp\BehatApiExtension\Context\Initializer;
 
 use Mtkip\BehatApiExtension\Context\ApiClientAwareContext;
 
@@ -18,14 +18,14 @@ class ApiClientAwareInitializer implements ContextInitializer {
     /**
      * @var string
      */
-    private $baseUri;
+    private $baseUrl;
     /**
      * Class constructor
      *
      * @param string $baseUri
      */
-    public function __construct($baseUri) {
-        $this->baseUri = $baseUri;
+    public function __construct($baseUrl) {
+        $this->baseUrl = $baseUrl;
     }
     
     /**
@@ -37,7 +37,7 @@ class ApiClientAwareInitializer implements ContextInitializer {
      */
     public function initializeContext(Context $context) {
         if ($context instanceof ApiClientAwareContext) {
-            $context->setClient(new Client(['base_uri' => $this->baseUri]));
+            $context->setClient(new Client(['base_url' => $this->baseUrl]));
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Imbo\BehatApiExtension\Context;
+namespace MtkIp\BehatApiExtension\Context;
 
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;

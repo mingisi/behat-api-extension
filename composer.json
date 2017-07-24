@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Mtkip\\BehatApiExtension\\": "src/"
+      "MtkIp\\BehatApiExtension\\": "src/"
     }
   }
 }
