@@ -10,12 +10,9 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use GuzzleHttp\ClientInterface;
 use InvalidArgumentException;
+
 /**
  * Behat API extension
- *
- * This extension provides a series of steps that can be used to easily test API's. The ApiContext
- * class also exposes the client, request and response objects so custom steps using the underlying
- * client can be implemented.
  *
  * @author Salim Muthalib <salim@connect.auto>
  */
@@ -26,14 +23,14 @@ class BehatApiExtension implements ExtensionInterface {
      *
      * @var string
      */
-    const CLIENT_ID = 'api_extension.client';
+    const CLIENT_ID = 'mtkip_api_extension.client';
 
     /**
      * Config key for the extension
      *
      * @var string
      */
-    const CONFIG_KEY = 'api_extension';
+    const CONFIG_KEY = 'mtkip_api_extension';
 
     /**
      * {@inheritdoc}
@@ -57,7 +54,7 @@ class BehatApiExtension implements ExtensionInterface {
         $builder
             ->addDefaultsIfNotSet()
             ->children()
-                ->scalarNode('base_url')
+                ->scalarNode('base_uri')
                     ->defaultValue('http://localhost')
                     ->isRequired()
                     ->cannotBeEmpty()
@@ -72,11 +69,10 @@ class BehatApiExtension implements ExtensionInterface {
      */
     public function load(ContainerBuilder $container, array $config) {
         // Client initializer definition
-        var_dump($config);
         $clientInitializerDefinition = new Definition(
             'Mtkip\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
             [
-                $config['base_url']
+                $config['base_uri']
             ]
         );
         $clientInitializerDefinition->addTag(ContextExtension::INITIALIZER_TAG);

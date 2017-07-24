@@ -5,7 +5,11 @@ use Mtkip\BehatApiExtension\Context\ApiClientAwareContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\Initializer\ContextInitializer;
+
 use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJarInterface;
+use GuzzleHttp\Cookie\CookieJar;
+
 
 /**
  * API client aware initializer
@@ -18,14 +22,21 @@ class ApiClientAwareInitializer implements ContextInitializer {
     /**
      * @var string
      */
-    private $baseUrl;
+    private $baseUri;
+
+    /**
+     * @var CookieJarInterface
+     */
+    private $cookie;
+
     /**
      * Class constructor
      *
      * @param string $baseUri
      */
-    public function __construct($baseUrl) {
-        $this->baseUrl = $baseUrl;
+    public function __construct($baseUri) {
+        $this->baseUri = $baseUri;
+        $this->cookie = new CookieJar();
     }
     
     /**
@@ -37,7 +48,7 @@ class ApiClientAwareInitializer implements ContextInitializer {
      */
     public function initializeContext(Context $context) {
         if ($context instanceof ApiClientAwareContext) {
-            $context->setClient(new Client(['base_url' => $this->baseUrl]));
+            $context->setClient(new Client(['base_uri' => $this->baseUri, 'cookies' => $this->cookie]));
         }
     }
 }
