@@ -32,7 +32,7 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
      */
     public function setClient(ClientInterface $client) {
         $this->client = $client;
-        $this->request = new Request('GET', $client->getConfig('base_uri'));
+        $this->request = new Request('GET', $client->getConfig('base_url'));
         return $this;
     }
 
