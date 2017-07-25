@@ -18,6 +18,7 @@ use Psr\Http\Message\ResponseInterface;
 
 use InvalidArgumentException;
 use RuntimeException;
+use Exception;
 use stdClass;
 
 use Coduo\PHPMatcher\Factory\SimpleFactory;
@@ -101,6 +102,15 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
     }
 
     /**
+     * @When I request :url
+     * @When I send a request request :url
+     */
+    public function iRequest($url)
+    {
+        $this->sendRequest('GET', $url);
+    }
+
+    /**
      * @When I send a :method request to :url
      */
     public function sendRequest($method, $url, $requestOptions = [])
@@ -147,6 +157,7 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
 
      /**
      * @Then the response code should be :statusCode
+     * @Then the response code is :statusCode
      */
     public function isResponseCode($statusCode)
     {
