@@ -28,7 +28,8 @@ use Coduo\PHPMatcher\Factory\SimpleFactory;
  *
  *  @author Salim Muthalib <salim@connect.auto>
  */
-class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
+class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
+{
  
 
     private $cookie;
@@ -77,7 +78,8 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
     /**
      * {@inheritdoc}
      */
-    public function setClient(ClientInterface $client) {
+    public function setClient(ClientInterface $client)
+    {
         $this->client = $client;
         $this->request = new Request('GET', $client->getConfig('base_uri'));
 
@@ -171,9 +173,8 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
     public function theResponseShouldContainJson(PyStringNode $jsonString)
     {
         
-        $etalon = $this->getAssociativeArray($jsonString);
-        $data = $this->getAssociativeArray($this->response->getBody());
-        $match = $this->matcher->match($data, $etalon);
+        $body = (string) $this->response->getBody();
+        $match = $this->matcher->match($body, (string) $jsonString);
 
         try {
             Assertion::true($match);
@@ -188,7 +189,6 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
     public function theResponseBodyContainsXml(PyStringNode $xmlString)
     {
         $body = (string) $this->response->getBody();
-
         $match = $this->matcher->match($body, (string) $xmlString);
 
         try {
@@ -229,8 +229,4 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext {
 
         return $this;
     }
-    
-
-
-
 }
