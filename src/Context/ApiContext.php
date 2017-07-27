@@ -31,15 +31,19 @@ use Coduo\PHPMatcher\Factory\SimpleFactory;
 class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
 {
  
-
-    private $cookie;
+    /**
+     * Guzzle CookieJar
+     *
+     * @var CookieJarInterface
+     */
+    protected $cookie;
 
     /**
      * Guzzle client
      *
-     * @var Client
+     * @var ClientInterface
      */
-    private $client;
+    protected $client;
 
     /**
      * Request instance
@@ -57,17 +61,17 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
      *
      * @var ResponseInterface
      */
-    private $response;
+    protected $response;
 
-    private $user;
+    protected $user;
 
-    private $factory;
+    protected $factory;
 
-    private $matcher;
+    protected $matcher;
 
-    private $requestId;
+    protected $requestId;
 
-    private $requestOptions;
+    protected $requestOptions = [];
 
     public function __construct()
     {
