@@ -69,7 +69,6 @@ class BehatApiExtension implements ExtensionInterface {
      */
     public function load(ContainerBuilder $container, array $config) {
         // Client initializer definition
-        echo "\n\n>>>> im here mingisi \n\n";
         $clientInitializerDefinition = new Definition(
             'Mingisi\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
             [
