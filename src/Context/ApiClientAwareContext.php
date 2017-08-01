@@ -1,5 +1,5 @@
 <?php
-namespace MtkIp\BehatApiExtension\Context;
+namespace Behat\BehatApiExtension\Context;
 
 use Behat\Behat\Context\Context;
 use GuzzleHttp\ClientInterface;
@@ -10,7 +10,7 @@ use GuzzleHttp\ClientInterface;
  * @author Salim Muthalib <salim@connect.auto>
  */
 interface ApiClientAwareContext extends Context {
-   
+
     /**
      * Set the Guzzle client and create a pristine request instance
      *

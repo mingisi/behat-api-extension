@@ -1,5 +1,5 @@
 <?php
-namespace MtkIp\BehatApiExtension\ServiceContainer;
+namespace Behat\BehatApiExtension\ServiceContainer;
 
 use Behat\Behat\Context\ServiceContainer\ContextExtension;
 use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
@@ -23,14 +23,14 @@ class BehatApiExtension implements ExtensionInterface {
      *
      * @var string
      */
-    const CLIENT_ID = 'mtkip_api_extension.client';
+    const CLIENT_ID = 'api_extension.client';
 
     /**
      * Config key for the extension
      *
      * @var string
      */
-    const CONFIG_KEY = 'mtkip_api_extension';
+    const CONFIG_KEY = 'api_extension';
 
     /**
      * {@inheritdoc}
@@ -69,9 +69,8 @@ class BehatApiExtension implements ExtensionInterface {
      */
     public function load(ContainerBuilder $container, array $config) {
         // Client initializer definition
-        var_dump($config);
         $clientInitializerDefinition = new Definition(
-            'MtkIp\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
+            'Behat\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
             [
                 $config['base_uri']
             ]

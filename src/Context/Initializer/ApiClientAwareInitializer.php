@@ -1,7 +1,7 @@
 <?php
-namespace MtkIp\BehatApiExtension\Context\Initializer;
+namespace Behat\BehatApiExtension\Context\Initializer;
 
-use MtkIp\BehatApiExtension\Context\ApiClientAwareContext;
+use Behat\BehatApiExtension\Context\ApiClientAwareContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\Initializer\ContextInitializer;
@@ -38,7 +38,7 @@ class ApiClientAwareInitializer implements ContextInitializer {
         $this->baseUri = $baseUri;
         $this->cookie = new CookieJar();
     }
-    
+
     /**
      * Initialize the context
      *

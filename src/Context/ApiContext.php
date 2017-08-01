@@ -1,5 +1,5 @@
 <?php
-namespace MtkIp\BehatApiExtension\Context;
+namespace Behat\BehatApiExtension\Context;
 
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
@@ -30,7 +30,7 @@ use Coduo\PHPMatcher\Factory\SimpleFactory;
  */
 class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
 {
- 
+
     /**
      * Guzzle CookieJar
      *
@@ -89,7 +89,7 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
 
         return $this;
     }
-    
+
     /**
      * @Given I am authenticating as:
      */
@@ -176,7 +176,7 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
      */
     public function theResponseShouldContainJson(PyStringNode $jsonString)
     {
-        
+
         $body = (string) $this->response->getBody();
         $match = $this->matcher->match($body, (string) $jsonString);
 
@@ -214,7 +214,7 @@ class ApiContext implements ApiClientAwareContext, SnippetAcceptingContext
 
     private function getAssociativeArray($jsonString)
     {
-        
+
         $assocArr = json_decode((string) $jsonString, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
