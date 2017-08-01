@@ -1,5 +1,5 @@
 <?php
-namespace Behat\BehatApiExtension\ServiceContainer;
+namespace Mingisi\BehatApiExtension\ServiceContainer;
 
 use Behat\Behat\Context\ServiceContainer\ContextExtension;
 use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
