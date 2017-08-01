@@ -1,7 +1,7 @@
 <?php
-namespace Behat\BehatApiExtension\Context\Initializer;
+namespace Mingisi\BehatApiExtension\Context\Initializer;
 
-use Behat\BehatApiExtension\Context\ApiClientAwareContext;
+use Mingisi\BehatApiExtension\Context\ApiClientAwareContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\Initializer\ContextInitializer;

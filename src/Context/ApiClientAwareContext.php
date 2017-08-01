@@ -1,5 +1,5 @@
 <?php
-namespace Behat\BehatApiExtension\Context;
+namespace Mingisi\BehatApiExtension\Context;
 
 use Behat\Behat\Context\Context;
 use GuzzleHttp\ClientInterface;

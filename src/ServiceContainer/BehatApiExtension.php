@@ -70,7 +70,7 @@ class BehatApiExtension implements ExtensionInterface {
     public function load(ContainerBuilder $container, array $config) {
         // Client initializer definition
         $clientInitializerDefinition = new Definition(
-            'Behat\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
+            'Mingisi\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
             [
                 $config['base_uri']
             ]
