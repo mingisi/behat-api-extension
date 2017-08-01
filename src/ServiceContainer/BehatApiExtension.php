@@ -23,14 +23,14 @@ class BehatApiExtension implements ExtensionInterface {
      *
      * @var string
      */
-    const CLIENT_ID = 'api_extension.client';
+    const CLIENT_ID = 'mingisi_api_extension.client';
 
     /**
      * Config key for the extension
      *
      * @var string
      */
-    const CONFIG_KEY = 'api_extension';
+    const CONFIG_KEY = 'mingisi_api_extension';
 
     /**
      * {@inheritdoc}
@@ -69,6 +69,7 @@ class BehatApiExtension implements ExtensionInterface {
      */
     public function load(ContainerBuilder $container, array $config) {
         // Client initializer definition
+        echo "\n\n>>>> im here mingisi \n\n";
         $clientInitializerDefinition = new Definition(
             'Mingisi\BehatApiExtension\Context\Initializer\ApiClientAwareInitializer',
             [
